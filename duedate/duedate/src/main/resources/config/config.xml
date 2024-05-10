@@ -7,6 +7,7 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="com.example.duedate.domain.diarydto.DiaryDTO" alias="DiaryDTO"></typeAlias>
+        <typeAlias type="com.example.duedate.domain.vo.DiaryVO" alias="DiaryVO"></typeAlias>
     </typeAliases>
+
 </configuration>

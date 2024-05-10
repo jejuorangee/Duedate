@@ -52,7 +52,7 @@ const renderCalendar = () => {
         currYear === new Date().getFullYear()
             ? "active"
             : "";
-    divLiTag += `<div id="dayOf${i}" class="day" onclick=selectDay(${i})><li class="${isToday}">${i}</li><span class="newDiaryEmo${i}"></span><a class"${isToday}" class"newTodo"></a></div>`;
+    divLiTag += `<div id="dayOf${i}" class="day"><li class="${isToday}">${i}</li><span class="newDiaryEmo${i}"></span><a class"${isToday}" class"newTodo"></a></div>`;
   }
 
   for (let i = lastDayofMonth; i < 6; i++) {
@@ -118,28 +118,28 @@ showCalendarbtn.addEventListener("click", function () {
 //-------------------------------------------------큰 달력의 날짜 클릭 시 해당 날짜 가지고 일기장으로 넘기기------------------------------------------
 
 // 큰달력 div에 onclick으로 넣음
-function selectDay(day) {
-  let selectDate = currYear + "-" + (currMonth + 1) + "-" + day;
-  for (let i = 1; i <= 31; i++) {
-    // console.log(selectDate);
-    if (
-        selectDate <=
-        currYear + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-    ) {
-      selectDateNgoTodo.value = selectDate;
-      selectDateNgo.value = selectDate;
-      if (myDiary.style.display == "none") {
-        myDiary.style.display = "";
-        diaryCalender.style.display = "none";
-      }
-    } else {
-      alert("오늘까지의 일기를 작성해 주세요");
-      break;
-      // myDiary.style.display = 'none';
-      // diaryCalender.style.display = '';
-    }
-  }
-}
+// function selectDay(day) {
+//   let selectDate = currYear + "-" + (currMonth + 1) + "-" + day;
+//   for (let i = 1; i <= 31; i++) {
+//     // console.log(selectDate);
+//     if (
+//         selectDate <=
+//         currYear + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+//     ) {
+//       selectDateNgoTodo.value = selectDate;
+//       selectDateNgo.value = selectDate;
+//       if (myDiary.style.display == "none") {
+//         myDiary.style.display = "";
+//         diaryCalender.style.display = "none";
+//       }
+//     } else {
+//       alert("오늘까지의 일기를 작성해 주세요");
+//       break;
+//       // myDiary.style.display = 'none';
+//       // diaryCalender.style.display = '';
+//     }
+//   }
+// }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 // 일기장 유효성 검사
@@ -162,6 +162,8 @@ submitBtn.addEventListener("click", () => {
     alert("일기 내용을 작성해 주세요");
   } else {
     alert("작성 완료");
+    return true;
+
     /*다이어리 데이트 벨류와 달력의 날짜가 같으면
     dayOf${o}아이디에 class="day ${haveDiary}" 추가
     li태그 뒤에 <span>${rightDiaryEmo.value}</span> 추가*/
@@ -195,7 +197,7 @@ submitBtn.addEventListener("click", () => {
     // };
     //작성 완료 시 일기장
     //1 .DB연동
-    //2. 날짜랑 이모티코 가지고 큰달력으로 넘어가서 달력 위에 뿌리기
+    //2. 날짜랑 이모티콘 가지고 큰달력으로 넘어가서 달력 위에 뿌리기
   }
 });
 
@@ -341,18 +343,20 @@ function addNewTodoList(event) {
 
   var todoDeleteBtn = document.createElement("button");
   todoDeleteBtn.classList.add("todo-del");
+  todoDeleteBtn.classList.add("material-symbols-outlined");
+  todoDeleteBtn.innerText=("delete");
 
-  var deleteImg = document.createElement("img");
-  deleteImg.setAttribute("src", "./img/delete.png");
-  deleteImg.setAttribute("alt", "del");
+  // var deleteImg = document.createElement("img");
+  // deleteImg.setAttribute("src", "./img/delete.png");
+  // deleteImg.setAttribute("alt", "del");
 
-  deleteImg.addEventListener("click", function (event) {
+  todoDeleteBtn.addEventListener("click", function (event) {
     var todoItem = this.closest(".check-todo");
     if (todoItem) {
       var todoInput = todoItem.querySelector(".todo");
       todoInput.value = "";
     }
-    deleteImg.addEventListener("click", function (event) {
+    todoDeleteBtn.addEventListener("click", function (event) {
       if (todoItem) {
         var parent = todoItem.parentElement;
         parent.removeChild(todoItem);
@@ -361,7 +365,7 @@ function addNewTodoList(event) {
     });
   });
 
-  todoDeleteBtn.appendChild(deleteImg);
+  // todoDeleteBtn.appendChild(deleteImg);
   checkTodo.appendChild(checkbox);
   checkTodo.appendChild(inputTodo);
   todoWrap.appendChild(checkTodo);
@@ -370,7 +374,7 @@ function addNewTodoList(event) {
 
   // 생성된 새로운 할일 목록을 클릭된 버튼의 부모 요소에 추가
   parentCategory.nextElementSibling.appendChild(newTodoList);
-  deleteImg.addEventListener("click", function (event) {
+  todoDeleteBtn.addEventListener("click", function (event) {
     var todoItem = this.closest(".check-todo");
     if (todoItem) {
       var todoInput = todoItem.querySelector(".todo");

@@ -1,6 +1,7 @@
-package com.example.duedate.diaryMapper;
+package com.example.duedate.mapper;
 
-import com.example.duedate.domain.diarydto.DiaryDTO;
+import com.example.duedate.domain.dto.DiaryDTO;
+import com.example.duedate.domain.vo.DiaryVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,13 +10,13 @@ import java.util.List;
 public interface DiaryMapper {
 
 //    일기 작성
-    void insertDiary(DiaryDTO diaryDTO);
+    void insertDiary(DiaryVO diaryVO);
 
 //    일기 수정
-    void updateDiary(DiaryDTO diaryDTO);
+    void updateDiary(DiaryVO diaryVO);
 
-//    일기 보기
-    DiaryDTO selectDiaryDetail(long diaryId);
+//    일기 상세 보기
+    DiaryVO selectDiaryDetail(long diaryId);
 
 //    일기 삭제
     void deleteDiary(Long diaryId);
