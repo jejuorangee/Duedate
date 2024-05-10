@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../static/css/diary_css/diarypage.css" />
+  <link rel="stylesheet" href="../../css/diary_css/diarypage.css" />
   <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
   />
   <link
-    href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css"
-    rel="stylesheet"
-    type="text/css"
+          href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css"
+          rel="stylesheet"
+          type="text/css"
   />
-  <link rel="stylesheet" href="../../static/css/header_css/common.css" />
-  <script defer src="../../static/js/diary_js/diarypage.js"></script>
+  <link rel="stylesheet" href="../../css/header_css/common.css" />
+  <script defer src="../../js/diary_js/diarypage.js"></script>
   <!-- <script src="../header/header.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
@@ -29,7 +28,7 @@
     <div class="header">
       <div class="left-header">
         <div class="logo-wrap">
-          <a href="./diarypage.html"><img class="logo" src="../../static/img/diary_img/logo.png"/></a>
+          <a href="./diarypage.html"><img class="logo" src="../../img/diary_img/logo.png"/></a>
         </div>
       </div>
       <div class="center-header">
@@ -49,22 +48,20 @@
       </div>
       <div class="right-menu">
         <button class="mypage-btn">
-          <img src="../../static/img/diary_img/account.png" />
+          <img src="../../img/diary_img/account.png" />
         </button>
       </div>
       <div class="mypage-menu-wrap" id="mypage-menu-wrap">
         <button class="close-btn" id="close-btn">×</button>
         <div class="mypage-menu">
-          <img src="../../static/img/diary_img/change.png" />
+          <img src="../../img/diary_img/change.png" />
         </div>
         <div class="user-wrap">
           <div class="user-email">email@email.com</div>
           <div class="user-nick-name">유저 닉네임</div>
         </div>
         <div class="mypage-link-wrap">
-          <a href="../goal_html/goalpage/goalpage.html" class="goal-page"
-          ><img />Goal Page</a
-          >
+          <a href="../goal_html/goalpage/goalpage.html" class="goal-page"><img />Goal Page</a>
           <a href="../login_html/loginpage.html" class="log-out"> Log Out</a>
         </div>
       </div>
@@ -234,7 +231,7 @@
       </div>
     </section>
     <!-- 일기장 || 큰달력 -->
-    <div class="rightSectionrWrap">
+    <div class="rightSectionWrap">
       <div class="diaryTopWrap">
         <div class="diaryTopBtnWrap">
           <div class="writeDiarybtn">
@@ -277,16 +274,16 @@
         <!-- style="display: none;" -->
         <div class="diaryOrCalendar">✨일기장🎉</div>
         <div class="writeDiarySection">
-          <form id="writeDiary" class="writeDiaryForm" action="#">
+          <form id="insertDiary" class="writeDiaryForm" action="/diary/writeDiary" method="post">
             <div class="myDiaryTop">
               <div class="myDiaryDateWrap">
                 <div>날짜 :</div>
                 <!-- <input type="text" class="myDiaryDateText">
                                 <input type="date" class="myDiaryDate" > -->
-                <input type="text" id="datepicker" width="30%" readonly required/>
+                <input type="text" id="datepicker" name="diaryDate" width="30%" readonly required/>
               </div>
               <div class="myDiaryEmoWrap">
-                <select name="날씨" id="diaryEmo" class="rightDiaryEmo">
+                <select name="diaryEmo" id="diaryEmo" class="rightDiaryEmo">
                   <option value="🌞">맑음 🌞</option>
                   <option value="☁">구름 ☁</option>
                   <option value="🌨">비🌨</option>
@@ -299,12 +296,12 @@
             </div>
             <div class="myDiaryTitleWrap">
               <div>제목 :</div>
-              <input type="text" id="myDiaryTitle" name="myDiaryTitle" class="myDiaryTitle" placeholder="제목 (최대 17글자)" maxlength="17" required/>
+              <input type="text" id="myDiaryTitle" name="diaryTitle" class="myDiaryTitle" placeholder="제목 (최대 17글자)" maxlength="17" required/>
             </div>
             <div class="myDiaryDetailWrap">
-                  <textarea id="diaryDetail" class="myDiaryDetail" placeholder="최대 70글자까지 작성 가능합니다" maxlength="70" required></textarea>
+              <textarea id="diaryDetail" class="myDiaryDetail" name="diaryContent" placeholder="최대 70글자까지 작성 가능합니다" maxlength="70" required></textarea>
             </div>
-            <input type="button" id="submit" class="submit-button" value="저장" name="제출버튼"/>
+            <input type="submit" id="submit" class="submit-button" value="저장" name="제출버튼"/>
             <input type="button" id="cancel" value="작성 취소" />
           </form>
         </div>

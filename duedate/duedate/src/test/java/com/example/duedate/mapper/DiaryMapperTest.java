@@ -1,12 +1,11 @@
-package com.example.duedate.diaryMapper;
+package com.example.duedate.mapper;
 
-import com.example.duedate.domain.diarydto.DiaryDTO;
+import com.example.duedate.domain.dto.DiaryDTO;
+import com.example.duedate.mapper.DiaryMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Slf4j
@@ -42,25 +41,4 @@ class DiaryMapperTest {
         System.out.println("update 메소드 확인");
     }
 
-    @Test
-    void selectDiaryDetail() {
-        DiaryDTO diaryDTO = new DiaryDTO();
-
-        diaryDTO.getDiaryDate();
-        diaryDTO.getDiaryEmo();
-        diaryDTO.getDiaryTitle();
-        diaryDTO.getDiaryContent();
-
-        System.out.println("selectDiaryDetail method check");
-    }
-
-    @Test
-    void deleteDiary() {
-
-    }
-
-    @Test
-    void selectEmoAll() {
-
-    }
 }

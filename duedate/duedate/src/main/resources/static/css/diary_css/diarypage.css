@@ -24,7 +24,7 @@ button {
   font-size: 30px !important;
 }
 
-.rightSectionrWrap .material-symbols-outlined {
+.rightSectionWrap .material-symbols-outlined {
   font-size: 48px !important;
 }
 
@@ -32,7 +32,7 @@ button {
   display: flex;
 }
 
-.rightSectionrWrap {
+.rightSectionWrap {
   margin: 4rem auto;
 }
 
@@ -152,10 +152,10 @@ button {
   color: #aaa;
 }
 
-.days div:hover {
-  background: #484848;
-  color: #fff;
-}
+/*.days div:hover {*/
+/*  background: #484848;*/
+/*  color: #fff;*/
+/*}*/
 
 .active:after {
   color: #000000;
@@ -579,7 +579,7 @@ button {
   justify-content: space-between;
   margin-top: 4px;
   margin-left: 8px;
-  margin-right: 30px;
+  margin-right: .5rem;
   height: 28px;
 }
 .checkbox {
